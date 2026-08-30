@@ -122,7 +122,7 @@
 
   /* --- header on every slide --- */
   .live-header{ text-align:center; margin-bottom: 26px; }
-  .live-logo{ width: clamp(96px, 30vw, 140px); height: auto; object-fit:contain; border-radius:20px; margin: 0 auto 16px; display:block; }
+  .live-logo{ width: clamp(288px, 75vw, 420px); height: auto; object-fit:contain; border-radius:28px; margin: 0 auto 16px; display:block; }
   .live-en{ font-family: var(--font-display); font-weight:700; font-size:1.1rem; margin:0; }
   .live-zh{ font-size:0.78rem; color: var(--ink-dim); margin: 3px 0 0; }
 
@@ -275,65 +275,4 @@
   </div>
 
   <div class="live-bottom">
-    <div class="live-dots" id="dots"></div>
-  </div>
-  <p class="live-version">v2.5 · updated 2026-08-30 19:50</p>
-</div>
-
-<script>
-  const track = document.getElementById('track');
-  const slides = track.querySelectorAll('.live-slide');
-  const dotsWrap = document.getElementById('dots');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  let current = 0;
-
-  slides.forEach((_, i) => {
-    const dot = document.createElement('button');
-    dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
-    dot.addEventListener('click', () => goTo(i));
-    dotsWrap.appendChild(dot);
-  });
-  const dots = dotsWrap.querySelectorAll('button');
-
-  function render(){
-    dots.forEach((d, i) => d.classList.toggle('is-active', i === current));
-    prevBtn.classList.toggle('is-hidden', current === 0);
-    nextBtn.classList.toggle('is-hidden', current === slides.length - 1);
-  }
-
-  function goTo(index, smooth = true){
-    current = Math.max(0, Math.min(slides.length - 1, index));
-    track.scrollTo({ left: current * track.clientWidth, behavior: smooth ? 'smooth' : 'auto' });
-    render();
-  }
-
-  prevBtn.addEventListener('click', () => goTo(current - 1));
-  nextBtn.addEventListener('click', () => goTo(current + 1));
-
-  // --- native scroll-snap drives the swipe; we just track where it lands ---
-  let scrollTimeout;
-  track.addEventListener('scroll', () => {
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(() => {
-      const width = track.clientWidth || 1;
-      const nearest = Math.round(track.scrollLeft / width);
-      current = Math.max(0, Math.min(slides.length - 1, nearest));
-      render();
-    }, 80);
-  }, { passive: true });
-
-  // Keep position correct if the viewport resizes (e.g. orientation change,
-  // or the mobile browser's address bar showing/hiding).
-  window.addEventListener('resize', () => goTo(current, false));
-
-  // --- keyboard arrows (desktop testing) ---
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') goTo(current + 1);
-    if (e.key === 'ArrowLeft') goTo(current - 1);
-  });
-
-  render();
-</script>
-</body>
-</html>
+    <div
