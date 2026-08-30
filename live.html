@@ -5,14 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>CareerX Network · 教會職青網絡</title>
 <meta name="description" content="CareerX Network — swipe through the key info.">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <link rel="icon" href="assets/CareerXNetwork.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=1">
 <style>
   /* live.html — swipeable single-screen slides, mobile-first */
-  html, body{ height:100%; overscroll-behavior: none; }
+  html, body{ height:100%; overflow:hidden; overscroll-behavior: none; }
   body{ display:flex; flex-direction:column; }
 
   .live-shell{
@@ -40,6 +43,8 @@
     justify-content:center;
     padding: 28px 24px;
     box-sizing:border-box;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .live-slide__inner{ max-width: 440px; margin: 0 auto; width:100%; }
 
