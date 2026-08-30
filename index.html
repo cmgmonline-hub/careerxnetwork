@@ -251,14 +251,18 @@
       <form class="join__form" id="joinForm">
         <div class="join__row">
           <label>
-            <span>Name</span>
+            <span>Name <span class="join__required">*</span></span>
             <input type="text" name="name" required placeholder="Your name">
           </label>
           <label>
-            <span>Email</span>
+            <span>Email <span class="join__required">*</span></span>
             <input type="email" name="email" required placeholder="you@email.com">
           </label>
         </div>
+        <label>
+          <span>Phone <span class="join__required">*</span></span>
+          <input type="tel" name="phone" required placeholder="e.g. 9123 4567">
+        </label>
         <label>
           <span>Industry / role</span>
           <input type="text" name="industry" placeholder="e.g. Nursing, second year">
