@@ -31,7 +31,7 @@
     display:flex;
     height:100%;
     transition: transform 0.4s var(--ease);
-    touch-action: pan-y;
+    touch-action: none;
   }
 
   .live-slide{
@@ -41,10 +41,8 @@
     display:flex;
     flex-direction:column;
     justify-content:center;
-    padding: 28px 24px;
+    padding: clamp(16px, 5vh, 28px) 24px;
     box-sizing:border-box;
-    overflow-y: auto;
-    touch-action: pan-y;
   }
   .live-slide__inner{ max-width: 440px; margin: 0 auto; width:100%; }
 
@@ -101,8 +99,8 @@
     background: var(--bg-panel-2);
     border: 1px solid var(--line);
     border-radius: var(--radius);
-    padding: 22px;
-    margin-bottom: 14px;
+    padding: clamp(14px, 3.5vh, 22px);
+    margin-bottom: clamp(8px, 2vh, 14px);
   }
   .live-card__label{
     font-family: var(--font-mono);
@@ -115,13 +113,13 @@
   .live-card h3{ font-family: var(--font-display); font-size: 1.05rem; margin: 0 0 6px; }
   .live-card p{ color: var(--ink-dim); font-size: 0.9rem; margin: 0; }
 
-  .live-highlights{ display:flex; flex-direction:column; gap: 10px; }
+  .live-highlights{ display:flex; flex-direction:column; gap: clamp(6px, 1.5vh, 10px); }
   .live-highlight{
     display:flex; align-items:center; gap: 14px;
     background: var(--bg-panel-2);
     border: 1px solid var(--line);
     border-radius: var(--radius-sm);
-    padding: 14px 16px;
+    padding: clamp(10px, 2.5vh, 14px) 16px;
   }
   .live-highlight__dot{
     flex-shrink:0; width:10px; height:10px; border-radius:50%;
@@ -232,7 +230,7 @@
   </div>
 
   <div class="live-dots" id="dots"></div>
-  <p class="live-version">v1.3 · updated 2026-08-30</p>
+  <p class="live-version">v1.4 · updated 2026-08-30 16:10</p>
 </div>
 
 <script>
@@ -266,7 +264,8 @@
   prevBtn.addEventListener('click', () => goTo(current - 1));
   nextBtn.addEventListener('click', () => goTo(current + 1));
 
-  // --- touch swipe ---
+  // --- touch swipe (fully JS-owned: touch-action:none stops the browser
+  // from ever claiming this gesture for native scrolling) ---
   let startX = 0, startY = 0, isSwiping = false, dragIntent = null;
 
   track.addEventListener('touchstart', (e) => {
@@ -282,16 +281,15 @@
     const dx = e.touches[0].clientX - startX;
     const dy = e.touches[0].clientY - startY;
 
-    // Lock the gesture's intent early so a slide's own vertical
-    // scroll can't hijack an already-horizontal swipe, or vice versa.
     if (!dragIntent && (Math.abs(dx) > 8 || Math.abs(dy) > 8)) {
       dragIntent = Math.abs(dx) > Math.abs(dy) ? 'horizontal' : 'vertical';
     }
 
     if (dragIntent === 'horizontal') {
+      e.preventDefault();
       track.style.transform = `translateX(calc(-${current * 100}% + ${dx}px))`;
     }
-  }, { passive: true });
+  }, { passive: false });
 
   function finishSwipe(e){
     if (!isSwiping) return;
