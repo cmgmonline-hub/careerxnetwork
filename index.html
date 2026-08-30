@@ -1,243 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CareerX Network · 教會職青網絡</title>
-<meta name="description" content="CareerX Network is a community for Christian young professionals to grow their careers with wisdom, mentorship, and faith.">
-<link rel="icon" href="assets/CareerXNetwork.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-<div class="grain"></div>
-
-<header class="nav" id="top">
-  <a class="nav__brand" href="#top">
-    <img src="assets/CareerXNetwork.png" alt="CareerX Network logo" class="nav__logo">
-    <span class="nav__brand-text">
-      <span class="nav__en">CareerX Network</span>
-      <span class="nav__zh">教會職青網絡</span>
-    </span>
-  </a>
-  <nav class="nav__links">
-    <a href="#mission">Mission</a>
-    <a href="#pillars">What We Do</a>
-    <a href="#path">The Path</a>
-    <a href="#events">Events</a>
-    <a href="#join" class="nav__cta">Join Us</a>
-  </nav>
-  <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</header>
-
-<main>
-
-  <!-- HERO -->
-  <section class="hero">
-    <svg class="hero__net" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <g class="hero__net-lines">
-        <line x1="120" y1="140" x2="300" y2="230"></line>
-        <line x1="300" y1="230" x2="470" y2="120"></line>
-        <line x1="470" y1="120" x2="640" y2="260"></line>
-        <line x1="640" y1="260" x2="860" y2="150"></line>
-        <line x1="860" y1="150" x2="1040" y2="270"></line>
-        <line x1="300" y1="230" x2="360" y2="420"></line>
-        <line x1="640" y1="260" x2="700" y2="470"></line>
-        <line x1="860" y1="150" x2="960" y2="380"></line>
-      </g>
-      <g class="hero__net-nodes">
-        <circle cx="120" cy="140" r="5"></circle>
-        <circle cx="300" cy="230" r="7"></circle>
-        <circle cx="470" cy="120" r="5"></circle>
-        <circle cx="640" cy="260" r="7"></circle>
-        <circle cx="860" cy="150" r="6"></circle>
-        <circle cx="1040" cy="270" r="5"></circle>
-        <circle cx="360" cy="420" r="4"></circle>
-        <circle cx="700" cy="470" r="4"></circle>
-        <circle cx="960" cy="380" r="4"></circle>
-      </g>
-    </svg>
-
-    <div class="hero__content">
-      <p class="eyebrow">教會職青網絡 · for Christian professionals building a career and a calling</p>
-      <h1 class="hero__title">
-        Your career is <span class="grad">one line</span><br>
-        in a much bigger network.
-      </h1>
-      <p class="hero__sub">
-        CareerX Network connects working Christians across industries and generations —
-        for mentorship, honest conversation, and the kind of support that a resume never mentions.
-      </p>
-      <div class="hero__actions">
-        <a href="#join" class="btn btn--primary">Join the network</a>
-        <a href="#pillars" class="btn btn--ghost">See how it works</a>
-      </div>
-      <dl class="hero__stats">
-        <div><dt>12+</dt><dd>industries represented</dd></div>
-        <div><dt>40+</dt><dd>mentors on call</dd></div>
-        <div><dt>6</dt><dd>gatherings a year</dd></div>
-      </dl>
-    </div>
-  </section>
-
-  <!-- MISSION -->
-  <section class="mission" id="mission">
-    <div class="mission__inner">
-      <span class="section-label">01 — Why CareerX exists</span>
-      <h2 class="mission__statement">
-        Sunday faith and Monday work aren't supposed to live in
-        separate folders. <span class="mission__statement--accent">We build the bridge.</span>
-      </h2>
-      <p class="mission__body">
-        Most career advice is either purely secular ambition or purely spiritual platitude.
-        CareerX Network is for the space in between: real decisions about jobs, money, ethics,
-        and calling — worked through with people who share your faith and understand your industry.
-      </p>
-    </div>
-  </section>
-
-  <!-- PILLARS -->
-  <section class="pillars" id="pillars">
-    <span class="section-label section-label--center">02 — What we do</span>
-    <h2 class="pillars__heading">Three ways the network shows up for you</h2>
-
-    <div class="pillars__grid">
-      <article class="pillar-card">
-        <div class="pillar-card__icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48"><circle cx="14" cy="14" r="5"/><circle cx="34" cy="14" r="5"/><circle cx="24" cy="36" r="5"/><line x1="14" y1="14" x2="24" y2="36"/><line x1="34" y1="14" x2="24" y2="36"/><line x1="14" y1="14" x2="34" y2="14"/></svg>
-        </div>
-        <h3>Mentorship pairing</h3>
-        <p>We match you one-on-one with a mentor a few steps ahead in your field — not for networking clout, but for the calls you actually need to make.</p>
-      </article>
-
-      <article class="pillar-card">
-        <div class="pillar-card__icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48"><rect x="8" y="26" width="6" height="14"/><rect x="21" y="16" width="6" height="24"/><rect x="34" y="8" width="6" height="32"/></svg>
-        </div>
-        <h3>Skill & career workshops</h3>
-        <p>Practical sessions on negotiation, career pivots, leadership under pressure, and building a working life you won't need to recover from.</p>
-      </article>
-
-      <article class="pillar-card">
-        <div class="pillar-card__icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48"><circle cx="12" cy="24" r="4"/><circle cx="24" cy="12" r="4"/><circle cx="36" cy="24" r="4"/><circle cx="24" cy="36" r="4"/><line x1="12" y1="24" x2="24" y2="12"/><line x1="24" y1="12" x2="36" y2="24"/><line x1="36" y1="24" x2="24" y2="36"/><line x1="24" y1="36" x2="12" y2="24"/></svg>
-        </div>
-        <h3>Cross-industry gatherings</h3>
-        <p>Quarterly meetups that mix finance, healthcare, tech, education, and the trades — because your next good idea usually comes from outside your own field.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- PATH / JOURNEY -->
-  <section class="path" id="path">
-    <span class="section-label section-label--center">03 — How members move through it</span>
-    <h2 class="path__heading">The path, not a program</h2>
-    <p class="path__sub">There's no single track — but here's how most members' first year looks.</p>
-
-    <div class="timeline">
-      <div class="timeline__node" style="--i:0">
-        <span class="timeline__dot"></span>
-        <h4>Show up</h4>
-        <p>Come to one gathering. No forms, no commitment — just conversation with people further along a similar road.</p>
-      </div>
-      <div class="timeline__node" style="--i:1">
-        <span class="timeline__dot"></span>
-        <h4>Get matched</h4>
-        <p>Tell us your field and your season of work. We introduce you to a mentor and a small peer circle.</p>
-      </div>
-      <div class="timeline__node" style="--i:2">
-        <span class="timeline__dot"></span>
-        <h4>Do the work</h4>
-        <p>Monthly check-ins, workshops when they're useful, and a group that will actually ask how the job hunt or the hard boss situation is going.</p>
-      </div>
-      <div class="timeline__node" style="--i:3">
-        <span class="timeline__dot"></span>
-        <h4>Turn around and mentor</h4>
-        <p>Most members eventually become the "further along" voice for someone else. That's the network compounding.</p>
-      </div>
-    </div>
-  </section>
-
   <!-- EVENTS -->
   <section class="events" id="events">
-    <span class="section-label">04 — Coming up</span>
-    <h2 class="events__heading">Upcoming gatherings</h2>
+    <span class="section-label">04 — Program schedule</span>
+    <h2 class="events__heading">Fall season, week by week</h2>
     <div class="events__list">
       <article class="event-row">
-        <div class="event-row__date"><span>OCT</span><strong>18</strong></div>
+        <div class="event-row__date"><span>SEP</span><strong>5</strong></div>
         <div class="event-row__body">
-          <h3>Career Pivot Panel: "I changed industries at 30"</h3>
-          <p>Three members on why they left stable jobs — and what they'd tell you before you do the same.</p>
+          <h3>Week 1: Opening</h3>
+          <p>Kick off CareerXNetwork! Connect with professionals, explore our vision, and build a powerful team for your career journey.</p>
         </div>
         <a href="#join" class="event-row__link">Reserve a seat →</a>
       </article>
       <article class="event-row">
-        <div class="event-row__date"><span>NOV</span><strong>09</strong></div>
+        <div class="event-row__date"><span>SEP</span><strong>12</strong></div>
         <div class="event-row__body">
-          <h3>Workshop: Negotiating Without Guilt</h3>
-          <p>A practical session on asking for what you're worth — and why that's not in tension with humility.</p>
+          <h3>Week 2: Professional Dojo</h3>
+          <p>Master essential hard and soft skills in mentor-led workshops designed to sharpen your competitive edge.</p>
         </div>
         <a href="#join" class="event-row__link">Reserve a seat →</a>
       </article>
       <article class="event-row">
-        <div class="event-row__date"><span>DEC</span><strong>07</strong></div>
+        <div class="event-row__date"><span>SEP</span><strong>19</strong></div>
         <div class="event-row__body">
-          <h3>Year-End Mixer & Mentor Matching</h3>
-          <p>New member intake for 2027 mentor circles, plus a look back at what the network built this year.</p>
+          <h3>Week 3: Career High Tea</h3>
+          <p>Unwind and connect over afternoon tea — a safe, supportive space to share experiences and find encouragement.</p>
+        </div>
+        <a href="#join" class="event-row__link">Reserve a seat →</a>
+      </article>
+      <article class="event-row">
+        <div class="event-row__date"><span>SEP</span><strong>26</strong></div>
+        <div class="event-row__body">
+          <h3>Week 4: Faith at Work</h3>
+          <p>Discover how to integrate purpose, faith, and core values into your daily professional life and decision-making.</p>
+        </div>
+        <a href="#join" class="event-row__link">Reserve a seat →</a>
+      </article>
+      <article class="event-row">
+        <div class="event-row__date"><span>OCT</span><strong>3</strong></div>
+        <div class="event-row__body">
+          <h3>Week 1: CareerX Workshop</h3>
+          <p>Bridge theory and practice through real-world project simulations designed to fast-track your career growth.</p>
+        </div>
+        <a href="#join" class="event-row__link">Reserve a seat →</a>
+      </article>
+      <article class="event-row">
+        <div class="event-row__date"><span>OCT</span><strong>10</strong></div>
+        <div class="event-row__body">
+          <h3>Week 2: CareerX Platform</h3>
+          <p>Unlock key industry networks, job opportunities, and cross-sector resources to accelerate your professional path.</p>
+        </div>
+        <a href="#join" class="event-row__link">Reserve a seat →</a>
+      </article>
+      <article class="event-row">
+        <div class="event-row__date"><span>OCT</span><strong>17</strong></div>
+        <div class="event-row__body">
+          <h3>Week 3: Career Recharge</h3>
+          <p>Prioritize mental health, learn stress management, and build resilience to maintain sustainable workplace wellness.</p>
+        </div>
+        <a href="#join" class="event-row__link">Reserve a seat →</a>
+      </article>
+      <article class="event-row">
+        <div class="event-row__date"><span>OCT</span><strong>24</strong></div>
+        <div class="event-row__body">
+          <h3>Week 4: CareerX Squad</h3>
+          <p>Extend our community impact through collaborative outreach initiatives that give back using your professional skills.</p>
+        </div>
+        <a href="#join" class="event-row__link">Reserve a seat →</a>
+      </article>
+      <article class="event-row">
+        <div class="event-row__date"><span>OCT</span><strong>31</strong></div>
+        <div class="event-row__body">
+          <h3>Week 5: Celebration & Welcome</h3>
+          <p>Celebrate key achievements, welcome new members, and strengthen team bonds as we look forward to the future!</p>
         </div>
         <a href="#join" class="event-row__link">Reserve a seat →</a>
       </article>
     </div>
   </section>
-
-  <!-- JOIN -->
-  <section class="join" id="join">
-    <div class="join__card">
-      <h2>Ready to plug in?</h2>
-      <p>Tell us a bit about where you are in your career, and we'll follow up about the next gathering and mentor matching.</p>
-      <form class="join__form" id="joinForm">
-        <div class="join__row">
-          <label>
-            <span>Name</span>
-            <input type="text" name="name" required placeholder="Your name">
-          </label>
-          <label>
-            <span>Email</span>
-            <input type="email" name="email" required placeholder="you@email.com">
-          </label>
-        </div>
-        <label>
-          <span>Industry / role</span>
-          <input type="text" name="industry" placeholder="e.g. Nursing, second year">
-        </label>
-        <label>
-          <span>What are you looking for?</span>
-          <textarea name="message" rows="3" placeholder="Mentorship, a peer circle, just curious..."></textarea>
-        </label>
-        <button type="submit" class="btn btn--primary">Send it in</button>
-        <p class="join__note" id="joinNote" aria-live="polite"></p>
-      </form>
-    </div>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <div class="footer__brand">
-    <img src="assets/CareerXNetwork.png" alt="CareerX Network logo" class="footer__logo">
-    <div>
-      <p class="footer__en">CareerX Network</p>
-      <p class="footer__zh">教會職青網絡</p>
-    </div>
-  </div>
-  <p class="footer__copy">© <span id="year"></span> CareerX Network. Built by the community, for the community.</p>
-</footer>
-
-<script src="script.js"></script>
-</body>
-</html>
