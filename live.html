@@ -51,7 +51,7 @@
   /* --- dot pagination --- */
   .live-dots{
     display:flex; justify-content:center; gap: 8px;
-    padding: 18px 0 max(18px, env(safe-area-inset-bottom));
+    padding: 18px 0 8px;
   }
   .live-dots button{
     width:8px; height:8px; border-radius:50%;
@@ -144,6 +144,16 @@
     color: var(--ink-faint);
     margin-top: 26px;
   }
+
+  .live-version{
+    text-align:center;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.03em;
+    color: var(--ink-faint);
+    opacity: 0.6;
+    padding-bottom: max(10px, env(safe-area-inset-bottom));
+  }
 </style>
 </head>
 <body>
@@ -222,6 +232,7 @@
   </div>
 
   <div class="live-dots" id="dots"></div>
+  <p class="live-version">v1.2 · updated 2026-08-30</p>
 </div>
 
 <script>
