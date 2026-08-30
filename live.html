@@ -54,10 +54,17 @@
   }
   .live-slide__inner{ max-width: 440px; margin: 0 auto; width:100%; }
 
-  /* --- dot pagination --- */
+  /* --- bottom control bar: prev arrow · dots · next arrow --- */
+  .live-bottom{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap: 22px;
+    padding: 18px 0 8px;
+  }
+
   .live-dots{
     display:flex; justify-content:center; gap: 8px;
-    padding: 18px 0 8px;
   }
   .live-dots button{
     width:8px; height:8px; border-radius:50%;
@@ -70,24 +77,22 @@
     transform: scale(1.3);
   }
 
-  /* --- swipe hint arrows --- */
+  /* --- swipe arrows (bottom bar, bigger tap targets) --- */
   .live-arrow{
-    position:absolute; top:50%; transform: translateY(-50%);
-    width: 38px; height:38px;
+    flex-shrink: 0;
+    width: 52px; height:52px;
     border-radius:50%;
     border:1px solid var(--line);
-    background: rgba(255,255,255,0.03);
-    color: var(--ink-dim);
+    background: rgba(255,255,255,0.04);
+    color: var(--ink);
     display:flex; align-items:center; justify-content:center;
     cursor:pointer;
-    transition: opacity 0.2s, border-color 0.2s;
-    z-index:5;
+    transition: opacity 0.2s, border-color 0.2s, background 0.2s, transform 0.15s;
   }
-  .live-arrow:hover{ border-color: var(--violet); color: var(--ink); }
-  .live-arrow--prev{ left: 10px; }
-  .live-arrow--next{ right: 10px; }
-  .live-arrow.is-hidden{ opacity:0; pointer-events:none; }
-  .live-arrow svg{ width:16px; height:16px; }
+  .live-arrow:hover{ border-color: var(--violet); background: rgba(139,107,255,0.12); }
+  .live-arrow:active{ transform: scale(0.94); }
+  .live-arrow.is-hidden{ opacity:0.25; pointer-events:none; }
+  .live-arrow svg{ width:22px; height:22px; }
 
   /* --- header on every slide --- */
   .live-header{ text-align:center; margin-bottom: 30px; }
@@ -168,13 +173,6 @@
 
 <div class="live-shell">
 
-  <button class="live-arrow live-arrow--prev is-hidden" id="prevBtn" aria-label="Previous">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-  </button>
-  <button class="live-arrow live-arrow--next" id="nextBtn" aria-label="Next">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-  </button>
-
   <div class="live-track" id="track">
 
     <!-- Slide 1: Intro -->
@@ -237,8 +235,16 @@
 
   </div>
 
-  <div class="live-dots" id="dots"></div>
-  <p class="live-version">v2.0 · updated 2026-08-30 18:20</p>
+  <div class="live-bottom">
+    <button class="live-arrow live-arrow--prev is-hidden" id="prevBtn" aria-label="Previous">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div class="live-dots" id="dots"></div>
+    <button class="live-arrow live-arrow--next" id="nextBtn" aria-label="Next">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </div>
+  <p class="live-version">v2.1 · updated 2026-08-30 18:45</p>
 </div>
 
 <script>
