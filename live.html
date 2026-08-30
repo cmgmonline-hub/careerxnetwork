@@ -44,7 +44,7 @@
     padding: 28px 24px;
     box-sizing:border-box;
     overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
   }
   .live-slide__inner{ max-width: 440px; margin: 0 auto; width:100%; }
 
@@ -232,7 +232,7 @@
   </div>
 
   <div class="live-dots" id="dots"></div>
-  <p class="live-version">v1.2 · updated 2026-08-30</p>
+  <p class="live-version">v1.3 · updated 2026-08-30</p>
 </div>
 
 <script>
@@ -267,12 +267,13 @@
   nextBtn.addEventListener('click', () => goTo(current + 1));
 
   // --- touch swipe ---
-  let startX = 0, startY = 0, isSwiping = false;
+  let startX = 0, startY = 0, isSwiping = false, dragIntent = null;
 
   track.addEventListener('touchstart', (e) => {
     startX = e.touches[0].clientX;
     startY = e.touches[0].clientY;
     isSwiping = true;
+    dragIntent = null;
     track.style.transition = 'none';
   }, { passive: true });
 
@@ -280,21 +281,36 @@
     if (!isSwiping) return;
     const dx = e.touches[0].clientX - startX;
     const dy = e.touches[0].clientY - startY;
-    if (Math.abs(dx) > Math.abs(dy)) {
+
+    // Lock the gesture's intent early so a slide's own vertical
+    // scroll can't hijack an already-horizontal swipe, or vice versa.
+    if (!dragIntent && (Math.abs(dx) > 8 || Math.abs(dy) > 8)) {
+      dragIntent = Math.abs(dx) > Math.abs(dy) ? 'horizontal' : 'vertical';
+    }
+
+    if (dragIntent === 'horizontal') {
       track.style.transform = `translateX(calc(-${current * 100}% + ${dx}px))`;
     }
   }, { passive: true });
 
-  track.addEventListener('touchend', (e) => {
+  function finishSwipe(e){
     if (!isSwiping) return;
     isSwiping = false;
     track.style.transition = '';
-    const dx = e.changedTouches[0].clientX - startX;
-    const threshold = 60;
-    if (dx < -threshold) goTo(current + 1);
-    else if (dx > threshold) goTo(current - 1);
-    else render();
-  });
+    if (dragIntent === 'horizontal') {
+      const dx = (e.changedTouches ? e.changedTouches[0].clientX : startX) - startX;
+      const threshold = 60;
+      if (dx < -threshold) goTo(current + 1);
+      else if (dx > threshold) goTo(current - 1);
+      else render();
+    } else {
+      render();
+    }
+    dragIntent = null;
+  }
+
+  track.addEventListener('touchend', finishSwipe);
+  track.addEventListener('touchcancel', finishSwipe);
 
   // --- keyboard arrows (desktop testing) ---
   document.addEventListener('keydown', (e) => {
