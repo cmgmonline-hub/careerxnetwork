@@ -241,8 +241,24 @@
     letter-spacing: 0.03em;
     color: var(--ink-faint);
     opacity: 0.6;
+    margin: 0;
+  }
+
+  .live-views{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap: 5px;
+    margin: 2px 0 0;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: var(--ink-faint);
+    opacity: 0.5;
     padding-bottom: max(10px, env(safe-area-inset-bottom));
   }
+  .live-views svg{ width:11px; height:11px; flex-shrink:0; }
 </style>
 </head>
 <body>
@@ -370,7 +386,11 @@
   <div class="live-bottom">
     <div class="live-dots" id="dots"></div>
   </div>
-  <p class="live-version">v4.1 · updated 2026-08-30 22:15</p>
+  <p class="live-version">v4.2 · updated 2026-08-30 22:35</p>
+  <p class="live-views">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+    <span id="viewCount">–</span>
+  </p>
 </div>
 
 <script>
@@ -427,6 +447,19 @@
   });
 
   render();
+
+  // --- view counter (Abacus: free, no signup, just increments per page load) ---
+  const viewCountEl = document.getElementById('viewCount');
+  fetch('https://abacus.jasoncameron.dev/hit/careerxnetwork-live/page-views')
+    .then(res => res.json())
+    .then(data => {
+      if (viewCountEl && typeof data.value === 'number') {
+        viewCountEl.textContent = data.value.toLocaleString();
+      }
+    })
+    .catch(() => {
+      if (viewCountEl) viewCountEl.textContent = '–';
+    });
 </script>
 </body>
 </html>
