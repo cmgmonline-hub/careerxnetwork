@@ -57,6 +57,13 @@
   }
   .live-slide__inner{ max-width: 440px; margin: 0 auto; width:100%; }
 
+  .live-slide.live-slide--scroll{
+    justify-content: flex-start;
+    overflow-y: auto;
+    padding-top: clamp(20px, 4vh, 32px);
+    padding-bottom: clamp(20px, 4vh, 32px);
+  }
+
   /* --- bottom control bar: just the dots now --- */
   .live-bottom{
     display:flex;
@@ -232,19 +239,54 @@
       </div>
     </section>
 
-    <!-- Slide 2: Next event -->
-    <section class="live-slide">
+    <!-- Slide 2: Program schedule -->
+    <section class="live-slide live-slide--scroll">
       <div class="live-slide__inner">
-        <p class="section-label section-label--center">Next gathering</p>
+        <p class="section-label section-label--center">Program Schedule</p>
         <div class="live-card">
-          <p class="live-card__label">OCT 18</p>
-          <h3>Career Pivot Panel</h3>
-          <p>"I changed industries at 30." Three members share what they'd tell you before doing the same.</p>
+          <p class="live-card__label">SEP 5 · WEEK 1</p>
+          <h3>Opening</h3>
+          <p>Kick off CareerXNetwork! Connect with professionals, explore our vision, and build a powerful team for your career journey.</p>
         </div>
         <div class="live-card">
-          <p class="live-card__label">NOV 09</p>
-          <h3>Negotiating Without Guilt</h3>
-          <p>A practical workshop on asking for what you're worth.</p>
+          <p class="live-card__label">SEP 12 · WEEK 2</p>
+          <h3>Professional Dojo</h3>
+          <p>Master essential hard and soft skills in mentor-led workshops designed to sharpen your competitive edge.</p>
+        </div>
+        <div class="live-card">
+          <p class="live-card__label">SEP 19 · WEEK 3</p>
+          <h3>Career High Tea</h3>
+          <p>Unwind and connect over afternoon tea — a safe, supportive space to share experiences and find encouragement.</p>
+        </div>
+        <div class="live-card">
+          <p class="live-card__label">SEP 26 · WEEK 4</p>
+          <h3>Faith at Work</h3>
+          <p>Discover how to integrate purpose, faith, and core values into your daily professional life and decision-making.</p>
+        </div>
+        <div class="live-card">
+          <p class="live-card__label">OCT 3 · WEEK 1</p>
+          <h3>CareerX Workshop</h3>
+          <p>Bridge theory and practice through real-world project simulations designed to fast-track your career growth.</p>
+        </div>
+        <div class="live-card">
+          <p class="live-card__label">OCT 10 · WEEK 2</p>
+          <h3>CareerX Platform</h3>
+          <p>Unlock key industry networks, job opportunities, and cross-sector resources to accelerate your professional path.</p>
+        </div>
+        <div class="live-card">
+          <p class="live-card__label">OCT 17 · WEEK 3</p>
+          <h3>Career Recharge</h3>
+          <p>Prioritize mental health, learn stress management, and build resilience to maintain sustainable workplace wellness.</p>
+        </div>
+        <div class="live-card">
+          <p class="live-card__label">OCT 24 · WEEK 4</p>
+          <h3>CareerX Squad</h3>
+          <p>Extend our community impact through collaborative outreach initiatives that give back using your professional skills.</p>
+        </div>
+        <div class="live-card">
+          <p class="live-card__label">OCT 31 · WEEK 5</p>
+          <h3>Celebration & Welcome</h3>
+          <p>Celebrate key achievements, welcome new members, and strengthen team bonds as we look forward to the future!</p>
         </div>
       </div>
     </section>
@@ -280,7 +322,7 @@
   <div class="live-bottom">
     <div class="live-dots" id="dots"></div>
   </div>
-  <p class="live-version">v2.8 · updated 2026-08-30 20:30</p>
+  <p class="live-version">v2.9 · updated 2026-08-30 20:50</p>
 </div>
 
 <script>
