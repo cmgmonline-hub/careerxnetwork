@@ -30,11 +30,15 @@
     flex:1;
     display:flex;
     height:100%;
-    transition: transform 0.4s var(--ease);
-    touch-action: pan-y;
-    -webkit-user-select: none;
-    user-select: none;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
+  .live-track::-webkit-scrollbar{ display:none; }
 
   .live-slide{
     flex: 0 0 100%;
@@ -45,6 +49,8 @@
     justify-content:center;
     padding: clamp(16px, 5vh, 28px) 24px;
     box-sizing:border-box;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
   }
   .live-slide__inner{ max-width: 440px; margin: 0 auto; width:100%; }
 
@@ -232,7 +238,7 @@
   </div>
 
   <div class="live-dots" id="dots"></div>
-  <p class="live-version">v1.5 · updated 2026-08-30 17:05</p>
+  <p class="live-version">v2.0 · updated 2026-08-30 18:20</p>
 </div>
 
 <script>
@@ -252,67 +258,35 @@
   const dots = dotsWrap.querySelectorAll('button');
 
   function render(){
-    track.style.transform = `translateX(-${current * 100}%)`;
     dots.forEach((d, i) => d.classList.toggle('is-active', i === current));
     prevBtn.classList.toggle('is-hidden', current === 0);
     nextBtn.classList.toggle('is-hidden', current === slides.length - 1);
   }
 
-  function goTo(index){
+  function goTo(index, smooth = true){
     current = Math.max(0, Math.min(slides.length - 1, index));
+    track.scrollTo({ left: current * track.clientWidth, behavior: smooth ? 'smooth' : 'auto' });
     render();
   }
 
   prevBtn.addEventListener('click', () => goTo(current - 1));
   nextBtn.addEventListener('click', () => goTo(current + 1));
 
-  // --- swipe via Pointer Events (unifies touch/mouse/pen, and avoids a
-  // known WebKit quirk where touch-action:none + a non-passive touchmove
-  // listener can cause Safari to drop the gesture entirely) ---
-  let startX = 0, startY = 0, isDragging = false, dragIntent = null;
-
-  track.addEventListener('pointerdown', (e) => {
-    if (e.pointerType === 'mouse' && e.button !== 0) return;
-    startX = e.clientX;
-    startY = e.clientY;
-    isDragging = true;
-    dragIntent = null;
-    track.setPointerCapture(e.pointerId);
-    track.style.transition = 'none';
-  });
-
-  track.addEventListener('pointermove', (e) => {
-    if (!isDragging) return;
-    const dx = e.clientX - startX;
-    const dy = e.clientY - startY;
-
-    if (!dragIntent && (Math.abs(dx) > 8 || Math.abs(dy) > 8)) {
-      dragIntent = Math.abs(dx) > Math.abs(dy) ? 'horizontal' : 'vertical';
-    }
-
-    if (dragIntent === 'horizontal') {
-      track.style.transform = `translateX(calc(-${current * 100}% + ${dx}px))`;
-    }
-  });
-
-  function endDrag(e){
-    if (!isDragging) return;
-    isDragging = false;
-    track.style.transition = '';
-    if (dragIntent === 'horizontal') {
-      const dx = e.clientX - startX;
-      const threshold = 60;
-      if (dx < -threshold) goTo(current + 1);
-      else if (dx > threshold) goTo(current - 1);
-      else render();
-    } else {
+  // --- native scroll-snap drives the swipe; we just track where it lands ---
+  let scrollTimeout;
+  track.addEventListener('scroll', () => {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      const width = track.clientWidth || 1;
+      const nearest = Math.round(track.scrollLeft / width);
+      current = Math.max(0, Math.min(slides.length - 1, nearest));
       render();
-    }
-    dragIntent = null;
-  }
+    }, 80);
+  }, { passive: true });
 
-  track.addEventListener('pointerup', endDrag);
-  track.addEventListener('pointercancel', endDrag);
+  // Keep position correct if the viewport resizes (e.g. orientation change,
+  // or the mobile browser's address bar showing/hiding).
+  window.addEventListener('resize', () => goTo(current, false));
 
   // --- keyboard arrows (desktop testing) ---
   document.addEventListener('keydown', (e) => {
