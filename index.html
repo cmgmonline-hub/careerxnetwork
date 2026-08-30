@@ -248,9 +248,10 @@
     <div class="join__card">
       <h2>Ready to plug in?</h2>
       <p>Tell us a bit about where you are in your career, and we'll follow up about the next gathering and mentor matching.</p>
-<form class="join__form" id="joinForm" action="https://api.web3forms.com/submit" method="POST">
-  <input type="hidden" name="access_key" value="47c41b14-801f-42eb-a7ed-7c372a14ec27">
-  <input type="hidden" name="subject" value="New CareerX Network sign-up">
+      <form class="join__form" id="joinForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="47c41b14-801f-42eb-a7ed-7c372a14ec27">
+        <input type="hidden" name="subject" value="New CareerX Network sign-up">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
         <div class="join__row">
           <label>
             <span>Name <span class="join__required">*</span></span>
@@ -263,7 +264,7 @@
         </div>
         <label>
           <span>Phone <span class="join__required">*</span></span>
-          <input type="tel" name="phone" required placeholder="e.g. 14151234567">
+          <input type="tel" name="phone" required placeholder="e.g. 9123 4567">
         </label>
         <label>
           <span>Industry / role</span>
