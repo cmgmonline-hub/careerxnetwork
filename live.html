@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CareerX Network · 教會職青網絡</title>
+<meta name="description" content="CareerX Network — key info at a glance.">
+<link rel="icon" href="assets/CareerXNetwork.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* live.html-only layout — a single condensed scroll, no nav/hero graphics */
+  .live-page{
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 36px 20px 60px;
+    min-height: 100vh;
+  }
+  .live-header{ text-align:center; margin-bottom: 34px; }
+  .live-logo{ width:64px; height:64px; object-fit:contain; border-radius:14px; margin: 0 auto 14px; }
+  .live-en{ font-family: var(--font-display); font-weight:700; font-size:1.3rem; margin:0; }
+  .live-zh{ font-size:0.85rem; color: var(--ink-dim); margin: 4px 0 0; }
+
+  .live-tagline{
+    text-align:center;
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    line-height:1.4;
+    margin: 0 0 30px;
+  }
+
+  .live-card{
+    background: var(--bg-panel-2);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 14px;
+  }
+  .live-card__label{
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0 0 8px;
+  }
+  .live-card h3{ font-family: var(--font-display); font-size: 1.02rem; margin: 0 0 6px; }
+  .live-card p{ color: var(--ink-dim); font-size: 0.9rem; margin: 0; }
+
+  .live-highlights{ display:flex; flex-direction:column; gap: 10px; margin-bottom: 30px; }
+  .live-highlight{
+    display:flex; align-items:center; gap: 14px;
+    background: var(--bg-panel-2);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+  }
+  .live-highlight__dot{
+    flex-shrink:0; width:10px; height:10px; border-radius:50%;
+    background: var(--grad);
+  }
+  .live-highlight span{ font-size: 0.92rem; }
+
+  .live-actions{ display:flex; flex-direction:column; gap: 12px; margin-bottom: 34px; }
+  .live-actions .btn{ width:100%; padding: 15px 20px; font-size: 1rem; }
+
+  .live-contact{ text-align:center; font-size: 0.85rem; color: var(--ink-dim); }
+  .live-contact a{ color: var(--cyan); }
+  .live-contact p{ margin: 6px 0; }
+
+  .live-footer{
+    text-align:center;
+    margin-top: 40px;
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+  }
+  .live-footer a{ color: var(--ink-dim); text-decoration: underline; text-underline-offset: 3px; }
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<div class="live-page">
+
+  <div class="live-header">
+    <img src="assets/CareerXNetwork.png" alt="CareerX Network logo" class="live-logo">
+    <p class="live-en">CareerX Network</p>
+    <p class="live-zh">教會職青網絡</p>
+  </div>
+
+  <h1 class="live-tagline">
+    Your career is <span class="grad">one line</span> in a much bigger network.
+  </h1>
+
+  <div class="live-card">
+    <p class="live-card__label">Next gathering</p>
+    <h3>Career Pivot Panel — Oct 18</h3>
+    <p>"I changed industries at 30." Three members share what they'd tell you before doing the same.</p>
+  </div>
+
+  <div class="live-highlights">
+    <div class="live-highlight"><span class="live-highlight__dot"></span><span>1-on-1 mentorship matching</span></div>
+    <div class="live-highlight"><span class="live-highlight__dot"></span><span>Career & skill workshops</span></div>
+    <div class="live-highlight"><span class="live-highlight__dot"></span><span>Cross-industry gatherings, 6x a year</span></div>
+  </div>
+
+  <div class="live-actions">
+    <a href="index.html#join" class="btn btn--primary">Join the network</a>
+    <a href="index.html" class="btn btn--ghost">View full site</a>
+  </div>
+
+  <div class="live-contact">
+    <p>Questions? <a href="mailto:cmgmonline@gmail.com">cmgmonline@gmail.com</a></p>
+  </div>
+
+  <p class="live-footer">
+    <a href="index.html">CareerX Network</a> · 教會職青網絡
+  </p>
+
+</div>
+
+</body>
+</html>
