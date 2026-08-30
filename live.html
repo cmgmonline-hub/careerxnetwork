@@ -93,17 +93,32 @@
   .live-arrow--prev{
     left: 8px;
     color: var(--cyan);
-    filter: drop-shadow(0 0 5px var(--cyan)) drop-shadow(0 0 16px rgba(70,224,216,0.55));
+    animation: neon-flicker 2.2s ease-in-out infinite;
   }
   .live-arrow--next{
     right: 8px;
     color: var(--magenta);
-    filter: drop-shadow(0 0 5px var(--magenta)) drop-shadow(0 0 16px rgba(233,79,176,0.55));
+    animation: neon-flicker 2.2s ease-in-out infinite;
+    animation-delay: 0.4s;
   }
-  .live-arrow:hover{ filter: drop-shadow(0 0 8px currentColor) drop-shadow(0 0 24px currentColor); }
+  @keyframes neon-flicker{
+    0%, 100%{
+      filter: drop-shadow(0 0 4px currentColor) drop-shadow(0 0 10px currentColor) drop-shadow(0 0 18px currentColor);
+      opacity: 0.8;
+    }
+    50%{
+      filter: drop-shadow(0 0 8px currentColor) drop-shadow(0 0 20px currentColor) drop-shadow(0 0 36px currentColor);
+      opacity: 1;
+    }
+  }
+  .live-arrow:hover{
+    animation-play-state: paused;
+    filter: drop-shadow(0 0 10px currentColor) drop-shadow(0 0 26px currentColor) drop-shadow(0 0 44px currentColor);
+    opacity: 1;
+  }
   .live-arrow:active{ transform: translateY(-50%) scale(0.9); }
-  .live-arrow.is-hidden{ opacity:0.12; filter:none; pointer-events:none; }
-  .live-arrow svg{ width:32px; height:32px; stroke-width: 2.6; }
+  .live-arrow.is-hidden{ opacity:0.12; filter:none; animation:none; pointer-events:none; }
+  .live-arrow svg{ width:34px; height:34px; stroke-width: 2.4; }
 
   /* --- header on every slide --- */
   .live-header{ text-align:center; margin-bottom: 30px; }
@@ -185,10 +200,16 @@
 <div class="live-shell">
 
   <button class="live-arrow live-arrow--prev is-hidden" id="prevBtn" aria-label="Previous">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 18l-6-6 6-6"/>
+      <path d="M11 18l-6-6 6-6"/>
+    </svg>
   </button>
   <button class="live-arrow live-arrow--next" id="nextBtn" aria-label="Next">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 18l6-6-6-6"/>
+      <path d="M13 18l6-6-6-6"/>
+    </svg>
   </button>
 
   <div class="live-track" id="track">
@@ -256,7 +277,7 @@
   <div class="live-bottom">
     <div class="live-dots" id="dots"></div>
   </div>
-  <p class="live-version">v2.2 · updated 2026-08-30 19:10</p>
+  <p class="live-version">v2.3 · updated 2026-08-30 19:30</p>
 </div>
 
 <script>
