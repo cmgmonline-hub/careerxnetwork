@@ -51,7 +51,6 @@ const joinForm = document.getElementById('joinForm');
 const joinNote = document.getElementById('joinNote');
 
 joinForm?.addEventListener('submit', (event) => {
-  event.preventDefault();
   const name = joinForm.elements.namedItem('name');
   joinNote.textContent = `Thanks${name?.value ? ', ' + name.value : ''} — this form isn't connected to anything yet. See README.md to wire it up to email or a form service.`;
   joinForm.reset();
