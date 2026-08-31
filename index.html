@@ -10,6 +10,26 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style>
+  /* Hero graphic: Golden Gate Bridge line art, replacing the old abstract network */
+  .hero__bridge-lines{ fill:none; stroke: var(--line); stroke-width: 1.5; opacity: 0.65; }
+  .hero__bridge-cables line{ fill:none; stroke: var(--line); stroke-width: 1.5; opacity: 0.5; stroke-dasharray: 6 10; animation: cable-flow 3.5s linear infinite; }
+  @keyframes cable-flow{ to{ stroke-dashoffset: -32; } }
+
+  .hero__fog{ opacity: 0.28; filter: blur(8px); }
+  .hero__fog ellipse{ fill: var(--ink-dim); transform-box: fill-box; transform-origin: center; }
+  .hero__fog ellipse:nth-child(1){ animation: fog-drift-a 22s ease-in-out infinite alternate; }
+  .hero__fog ellipse:nth-child(2){ animation: fog-drift-b 28s ease-in-out infinite alternate; }
+  @keyframes fog-drift-a{ from{ transform: translateX(-40px); } to{ transform: translateX(60px); } }
+  @keyframes fog-drift-b{ from{ transform: translateX(50px); } to{ transform: translateX(-70px); } }
+
+  .hero__bridge-nodes circle{ fill: var(--cyan); animation: tower-pulse 3s ease-in-out infinite; }
+  .hero__bridge-nodes circle:nth-child(2){ animation-delay: 1.1s; }
+  @keyframes tower-pulse{ 0%,100%{ opacity:0.5; } 50%{ opacity:1; } }
+
+  .hero__boat{ fill: var(--magenta); transform-box: fill-box; transform-origin: center; animation: boat-drift 26s ease-in-out infinite alternate; }
+  @keyframes boat-drift{ from{ transform: translateX(0); } to{ transform: translateX(680px); } }
+</style>
 </head>
 <body>
 
@@ -40,27 +60,52 @@
   <!-- HERO -->
   <section class="hero">
     <svg class="hero__net" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <g class="hero__net-lines">
-        <line x1="120" y1="140" x2="300" y2="230"></line>
-        <line x1="300" y1="230" x2="470" y2="120"></line>
-        <line x1="470" y1="120" x2="640" y2="260"></line>
-        <line x1="640" y1="260" x2="860" y2="150"></line>
-        <line x1="860" y1="150" x2="1040" y2="270"></line>
-        <line x1="300" y1="230" x2="360" y2="420"></line>
-        <line x1="640" y1="260" x2="700" y2="470"></line>
-        <line x1="860" y1="150" x2="960" y2="380"></line>
+      <g class="hero__fog">
+        <ellipse cx="300" cy="170" rx="240" ry="60"></ellipse>
+        <ellipse cx="860" cy="150" rx="280" ry="70"></ellipse>
       </g>
-      <g class="hero__net-nodes">
-        <circle cx="120" cy="140" r="5"></circle>
-        <circle cx="300" cy="230" r="7"></circle>
-        <circle cx="470" cy="120" r="5"></circle>
-        <circle cx="640" cy="260" r="7"></circle>
-        <circle cx="860" cy="150" r="6"></circle>
-        <circle cx="1040" cy="270" r="5"></circle>
-        <circle cx="360" cy="420" r="4"></circle>
-        <circle cx="700" cy="470" r="4"></circle>
-        <circle cx="960" cy="380" r="4"></circle>
+
+      <g class="hero__bridge-lines">
+        <line x1="80" y1="520" x2="1120" y2="520"></line>
+        <line x1="230" y1="380" x2="970" y2="380"></line>
+        <line x1="230" y1="380" x2="120" y2="460"></line>
+        <line x1="970" y1="380" x2="1080" y2="460"></line>
+        <line x1="430" y1="140" x2="430" y2="380"></line>
+        <line x1="770" y1="140" x2="770" y2="380"></line>
+        <line x1="410" y1="200" x2="450" y2="200"></line>
+        <line x1="410" y1="280" x2="450" y2="280"></line>
+        <line x1="750" y1="200" x2="790" y2="200"></line>
+        <line x1="750" y1="280" x2="790" y2="280"></line>
+        <path d="M120,460 C 250,300 350,140 430,140"></path>
+        <path d="M430,140 C 550,220 650,220 770,140"></path>
+        <path d="M770,140 C 850,140 950,300 1080,460"></path>
+        <line x1="950" y1="460" x2="950" y2="360"></line>
+        <line x1="980" y1="460" x2="980" y2="320"></line>
+        <line x1="980" y1="320" x2="1000" y2="280"></line>
+        <line x1="1000" y1="280" x2="1020" y2="320"></line>
+        <line x1="1020" y1="320" x2="1020" y2="460"></line>
+        <line x1="1050" y1="460" x2="1050" y2="340"></line>
+        <line x1="1050" y1="340" x2="1070" y2="340"></line>
+        <line x1="1070" y1="340" x2="1070" y2="460"></line>
       </g>
+
+      <g class="hero__bridge-cables">
+        <line x1="460" y1="176" x2="460" y2="380"></line>
+        <line x1="500" y1="200" x2="500" y2="380"></line>
+        <line x1="540" y1="215" x2="540" y2="380"></line>
+        <line x1="580" y1="222" x2="580" y2="380"></line>
+        <line x1="620" y1="222" x2="620" y2="380"></line>
+        <line x1="660" y1="215" x2="660" y2="380"></line>
+        <line x1="700" y1="200" x2="700" y2="380"></line>
+        <line x1="740" y1="176" x2="740" y2="380"></line>
+      </g>
+
+      <g class="hero__bridge-nodes">
+        <circle cx="430" cy="140" r="6"></circle>
+        <circle cx="770" cy="140" r="6"></circle>
+      </g>
+
+      <circle class="hero__boat" cx="200" cy="520" r="5"></circle>
     </svg>
 
        <div class="hero__content">
@@ -325,7 +370,7 @@
   <p class="footer__copy">© <span id="year"></span> CareerX Network. Built by the community, for the community.
     <span style="display:block;margin-top:4px;font-size:0.9em;opacity:0.8;font-family:'Noto Sans TC',sans-serif;">由群體建立，為群體服務。</span>
   </p>
-  <p class="footer__version" style="margin-top:6px; font-size:0.7rem; opacity:0.45;">v1.3 · 2026-08-30</p>
+  <p class="footer__version" style="margin-top:6px; font-size:0.7rem; opacity:0.45;">v1.4 · 2026-08-30</p>
 </footer>
 
 <script src="script.js"></script>
