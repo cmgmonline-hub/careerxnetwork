@@ -327,47 +327,21 @@
           <span>Industry / role 行業 / 職位</span>
           <input type="text" name="industry" placeholder="e.g. Nursing, second year">
         </label>
-        <div style="margin-bottom:6px;">
-          <span style="display:block;margin-bottom:8px;">Which session(s) are you interested in? <span style="opacity:0.8;">你想參加哪一場？(可複選)</span></span>
-          <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(170px,1fr)); gap:8px 14px;">
-            <label style="display:flex;align-items:center;gap:6px;font-weight:400;">
-              <input type="checkbox" name="event" value="Sep 5 — Opening 開幕">
-              <span>Sep 5 · Opening 開幕</span>
-            </label>
-            <label style="display:flex;align-items:center;gap:6px;font-weight:400;">
-              <input type="checkbox" name="event" value="Sep 12 — Professional Dojo 職場道場">
-              <span>Sep 12 · Professional Dojo 職場道場</span>
-            </label>
-            <label style="display:flex;align-items:center;gap:6px;font-weight:400;">
-              <input type="checkbox" name="event" value="Sep 19 — Career High Tea 職涯下午茶">
-              <span>Sep 19 · Career High Tea 職涯下午茶</span>
-            </label>
-            <label style="display:flex;align-items:center;gap:6px;font-weight:400;">
-              <input type="checkbox" name="event" value="Sep 26 — Faith at Work 信仰與工作">
-              <span>Sep 26 · Faith at Work 信仰與工作</span>
-            </label>
-            <label style="display:flex;align-items:center;gap:6px;font-weight:400;">
-              <input type="checkbox" name="event" value="Oct 3 — CareerX Workshop CareerX 工作坊">
-              <span>Oct 3 · CareerX Workshop CareerX 工作坊</span>
-            </label>
-            <label style="display:flex;align-items:center;gap:6px;font-weight:400;">
-              <input type="checkbox" name="event" value="Oct 10 — CareerX Platform CareerX 平台">
-              <span>Oct 10 · CareerX Platform CareerX 平台</span>
-            </label>
-            <label style="display:flex;align-items:center;gap:6px;font-weight:400;">
-              <input type="checkbox" name="event" value="Oct 17 — Career Recharge 職涯充電">
-              <span>Oct 17 · Career Recharge 職涯充電</span>
-            </label>
-            <label style="display:flex;align-items:center;gap:6px;font-weight:400;">
-              <input type="checkbox" name="event" value="Oct 24 — CareerX Squad CareerX 小隊">
-              <span>Oct 24 · CareerX Squad CareerX 小隊</span>
-            </label>
-            <label style="display:flex;align-items:center;gap:6px;font-weight:400;">
-              <input type="checkbox" name="event" value="Oct 31 — Celebration & Welcome 慶祝與歡迎">
-              <span>Oct 31 · Celebration & Welcome 慶祝與歡迎</span>
-            </label>
-          </div>
-        </div>
+        <label>
+          <span>Which session are you interested in? 你想參加哪一場？</span>
+          <select name="event">
+            <option value="">— Select a session 請選擇 —</option>
+            <option value="Sep 5 — Opening 開幕">Sep 5 · Opening 開幕</option>
+            <option value="Sep 12 — Professional Dojo 職場道場">Sep 12 · Professional Dojo 職場道場</option>
+            <option value="Sep 19 — Career High Tea 職涯下午茶">Sep 19 · Career High Tea 職涯下午茶</option>
+            <option value="Sep 26 — Faith at Work 信仰與工作">Sep 26 · Faith at Work 信仰與工作</option>
+            <option value="Oct 3 — CareerX Workshop CareerX 工作坊">Oct 3 · CareerX Workshop CareerX 工作坊</option>
+            <option value="Oct 10 — CareerX Platform CareerX 平台">Oct 10 · CareerX Platform CareerX 平台</option>
+            <option value="Oct 17 — Career Recharge 職涯充電">Oct 17 · Career Recharge 職涯充電</option>
+            <option value="Oct 24 — CareerX Squad CareerX 小隊">Oct 24 · CareerX Squad CareerX 小隊</option>
+            <option value="Oct 31 — Celebration & Welcome 慶祝與歡迎">Oct 31 · Celebration & Welcome 慶祝與歡迎</option>
+          </select>
+        </label>
         <label>
           <span>What are you looking for? 你正在尋找什麼？</span>
           <textarea name="message" rows="3" placeholder="Mentorship, a peer circle, just curious..."></textarea>
@@ -391,7 +365,7 @@
   <p class="footer__copy">© <span id="year"></span> CareerX Network. Built by the community, for the community.
     <span style="display:block;margin-top:4px;font-size:0.9em;opacity:0.8;font-family:'Noto Sans TC',sans-serif;">由群體建立，為群體服務。</span>
   </p>
-  <p class="footer__version" style="margin-top:6px; font-size:0.7rem; opacity:0.45;">v1.7 · 2026-08-30</p>
+  <p class="footer__version" style="margin-top:6px; font-size:0.7rem; opacity:0.45;">v1.8 · 2026-08-30</p>
 </footer>
 
 <script src="script.js"></script>
