@@ -13,27 +13,27 @@
 <style>
   /* Hero graphic: gentle floating nodes + flowing signal lines */
   .hero__net-lines line{
-    stroke-dasharray: 6 8;
-    animation: net-flow 4s linear infinite;
+    stroke-dasharray: 8 10;
+    animation: net-flow 1.4s linear infinite;
   }
-  @keyframes net-flow{ to{ stroke-dashoffset: -28; } }
+  @keyframes net-flow{ to{ stroke-dashoffset: -36; } }
 
   .hero__net-nodes circle{
     transform-box: fill-box;
     transform-origin: center;
-    animation: node-float 5s ease-in-out infinite, node-pulse 3.2s ease-in-out infinite;
+    animation: node-float 2.2s ease-in-out infinite, node-pulse 1.4s ease-in-out infinite;
   }
   .hero__net-nodes circle:nth-child(1){ animation-delay: 0s, 0s; }
-  .hero__net-nodes circle:nth-child(2){ animation-delay: 0.4s, 0.3s; }
-  .hero__net-nodes circle:nth-child(3){ animation-delay: 0.8s, 0.6s; }
-  .hero__net-nodes circle:nth-child(4){ animation-delay: 1.2s, 0.9s; }
-  .hero__net-nodes circle:nth-child(5){ animation-delay: 1.6s, 1.2s; }
-  .hero__net-nodes circle:nth-child(6){ animation-delay: 2.0s, 1.5s; }
-  .hero__net-nodes circle:nth-child(7){ animation-delay: 2.4s, 1.8s; }
-  .hero__net-nodes circle:nth-child(8){ animation-delay: 2.8s, 2.1s; }
-  .hero__net-nodes circle:nth-child(9){ animation-delay: 3.2s, 2.4s; }
-  @keyframes node-float{ 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-6px); } }
-  @keyframes node-pulse{ 0%,100%{ opacity: 0.75; } 50%{ opacity: 1; } }
+  .hero__net-nodes circle:nth-child(2){ animation-delay: 0.2s, 0.15s; }
+  .hero__net-nodes circle:nth-child(3){ animation-delay: 0.4s, 0.3s; }
+  .hero__net-nodes circle:nth-child(4){ animation-delay: 0.6s, 0.45s; }
+  .hero__net-nodes circle:nth-child(5){ animation-delay: 0.8s, 0.6s; }
+  .hero__net-nodes circle:nth-child(6){ animation-delay: 1.0s, 0.75s; }
+  .hero__net-nodes circle:nth-child(7){ animation-delay: 1.2s, 0.9s; }
+  .hero__net-nodes circle:nth-child(8){ animation-delay: 1.4s, 1.05s; }
+  .hero__net-nodes circle:nth-child(9){ animation-delay: 1.6s, 1.2s; }
+  @keyframes node-float{ 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-16px); } }
+  @keyframes node-pulse{ 0%,100%{ opacity: 0.45; } 50%{ opacity: 1; } }
 </style>
 </head>
 <body>
@@ -350,7 +350,7 @@
   <p class="footer__copy">© <span id="year"></span> CareerX Network. Built by the community, for the community.
     <span style="display:block;margin-top:4px;font-size:0.9em;opacity:0.8;font-family:'Noto Sans TC',sans-serif;">由群體建立，為群體服務。</span>
   </p>
-  <p class="footer__version" style="margin-top:6px; font-size:0.7rem; opacity:0.45;">v1.5 · 2026-08-30</p>
+  <p class="footer__version" style="margin-top:6px; font-size:0.7rem; opacity:0.45;">v1.6 · 2026-08-30</p>
 </footer>
 
 <script src="script.js"></script>
