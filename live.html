@@ -410,7 +410,7 @@
   <div class="live-bottom">
     <div class="live-dots" id="dots"></div>
   </div>
-  <p class="live-version">v4.5 · updated 2026-08-30 · registered count</p>
+  <p class="live-version">v4.6 · updated 2026-08-30 · view count once per browser</p>
   <p class="live-views">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
     <span id="viewCount">–</span>
@@ -472,14 +472,27 @@
 
   render();
 
-  // --- view counter (Abacus: free, no signup, just increments per page load) ---
+  // --- view counter (Abacus: free, no signup) ---
+  // Only increments once per browser (via localStorage), so reloads and
+  // revisits from the same device don't inflate the count. Different
+  // devices/browsers, or clearing site data, will still count as new.
   const viewCountEl = document.getElementById('viewCount');
-  fetch('https://abacus.jasoncameron.dev/hit/careerxnetwork-live/page-views')
+  const ABACUS_NAMESPACE = 'careerxnetwork-live';
+  const ABACUS_KEY = 'page-views';
+  const VISITED_FLAG = 'cxn_live_view_counted';
+
+  const alreadyCounted = localStorage.getItem(VISITED_FLAG);
+  const endpoint = alreadyCounted
+    ? `https://abacus.jasoncameron.dev/get/${ABACUS_NAMESPACE}/${ABACUS_KEY}`
+    : `https://abacus.jasoncameron.dev/hit/${ABACUS_NAMESPACE}/${ABACUS_KEY}`;
+
+  fetch(endpoint)
     .then(res => res.json())
     .then(data => {
       if (viewCountEl && typeof data.value === 'number') {
         viewCountEl.textContent = data.value.toLocaleString();
       }
+      if (!alreadyCounted) localStorage.setItem(VISITED_FLAG, '1');
     })
     .catch(() => {
       if (viewCountEl) viewCountEl.textContent = '–';
