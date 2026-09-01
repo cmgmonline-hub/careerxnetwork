@@ -90,6 +90,19 @@
     max-width: 320px;
   }
 
+  .live-registered{
+    text-align:center;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+    color: var(--ink-dim);
+    margin: 12px 0 2px;
+  }
+  .live-registered strong{
+    color: var(--cyan);
+    font-weight: 600;
+  }
+
   /* --- bottom control bar: just the dots now --- */
   .live-bottom{
     display:flex;
@@ -303,6 +316,7 @@
     <section class="live-slide live-slide--poster">
       <div class="live-slide__inner">
         <img src="assets/event-poster.jpg?v=1" alt="CareerX Network Grand Opening — 9.5.2026, Saturday 1:00pm, Golden Gate Park, hosted by SFChinese4sq.org" class="live-poster">
+        <p class="live-registered">現已登記人數：<strong>10</strong> 人 · Registered so far: <strong>10</strong></p>
         <a href="index.html#join" class="btn btn--primary live-poster-cta">Reserve a Seat 預留座位</a>
       </div>
     </section>
@@ -396,7 +410,7 @@
   <div class="live-bottom">
     <div class="live-dots" id="dots"></div>
   </div>
-  <p class="live-version">v4.4 · updated 2026-08-30 · new tagline</p>
+  <p class="live-version">v4.5 · updated 2026-08-30 · registered count</p>
   <p class="live-views">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
     <span id="viewCount">–</span>
