@@ -74,18 +74,21 @@
     align-items:center;
     max-width: 100%;
     height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .live-poster{
     max-width: 100%;
-    max-height: calc(100% - 64px);
+    max-height: calc(100% - 150px);
     width: auto;
     height: auto;
     object-fit: contain;
     border-radius: 14px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    flex-shrink: 0;
   }
   .live-poster-cta{
-    margin-top: 14px;
+    margin-top: 10px;
     width: calc(100% - 48px);
     max-width: 320px;
   }
@@ -433,7 +436,7 @@
   <div class="live-bottom">
     <div class="live-dots" id="dots"></div>
   </div>
-  <p class="live-version">v5.1 · updated 2026-09-02 03:02 UTC</p>
+  <p class="live-version">v5.2 · updated 2026-09-02 03:06 UTC</p>
   <p class="live-views">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
     <span id="viewCount">–</span>
